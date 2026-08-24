@@ -17,17 +17,17 @@ class HomeScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text('News'),
-            Text('Cloud', style: TextStyle(color: Color(0xffe1ce8b))),
+            Text('Cloud', style: TextStyle(color: Color.fromRGBO(225, 206, 139, 1))),
           ],
         ),
       ),
-      body: const Padding(
+      body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(child: CategoriesListView()),
             SliverToBoxAdapter(child: SizedBox(height: 32)),
-            SliverToBoxAdapter(child: NewsTileListView()),
+            NewsTileListView(),
           ],
         ),
 
