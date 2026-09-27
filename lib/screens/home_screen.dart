@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/models/article_model.dart';
+import 'package:news_app/services/news_services.dart';
+import 'package:news_app/widgets/News_List_View_Builder.dart';
 import 'package:news_app/widgets/categories_listview.dart';
 import 'package:news_app/widgets/category_card.dart';
 import 'package:news_app/widgets/news_tile.dart';
@@ -17,7 +20,10 @@ class HomeScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text('News'),
-            Text('Cloud', style: TextStyle(color: Color.fromRGBO(225, 206, 139, 1))),
+            Text(
+              'Cloud',
+              style: TextStyle(color: Color.fromRGBO(225, 206, 139, 1)),
+            ),
           ],
         ),
       ),
@@ -27,7 +33,7 @@ class HomeScreen extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(child: CategoriesListView()),
             SliverToBoxAdapter(child: SizedBox(height: 32)),
-            NewsTileListView(),
+            NewsListViewBuilder(),
           ],
         ),
 

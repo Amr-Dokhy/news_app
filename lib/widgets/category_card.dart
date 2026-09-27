@@ -9,7 +9,7 @@ class CategoryCard extends StatelessWidget {
     return Container(
       width: 180,
       height: 140,
-      margin: const EdgeInsets.only(right: 16), // مسافة بين الكروت
+      margin: const EdgeInsets.only(right: 16),
       decoration: BoxDecoration(
         image: DecorationImage(fit: BoxFit.fill, image: AssetImage(category.image)),
         borderRadius: BorderRadius.circular(12),

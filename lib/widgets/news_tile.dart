@@ -11,11 +11,18 @@ class NewsTile extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(6),
           child: Image.network(
-            articleModel.image ??
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvvyE4zqnOFYBHSEtasMhQvd_08zPrbd9ikNO3H28SWKlkC_N6bN39Krw&s=10',
-            height: 250,
-            width: double.infinity,
+            articleModel.image ?? 'assets/deadendURL.png',
+            cacheHeight: 250,
+            cacheWidth: 400,
             fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) {
+              return Image.asset(
+                'assets/brokenconnection.png',
+                cacheHeight: 250,
+                cacheWidth: 400,
+                fit: BoxFit.cover,
+              );
+            },
           ),
         ),
         SizedBox(height: 9),
@@ -23,7 +30,11 @@ class NewsTile extends StatelessWidget {
           articleModel.title ?? '',
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.grey),
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+            color: Colors.grey,
+          ),
         ),
         SizedBox(height: 20),
         Text(articleModel.subTitle ?? ''),
